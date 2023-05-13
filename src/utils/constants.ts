@@ -153,3 +153,12 @@ Object.entries(dogBreedsRaw).map((item, index) => {
     });
   }
 });
+
+export const catUrlTypes = [
+  {
+    id: 0,
+    name: 'Image',
+    url: 'https://cataas.com/cat?json=true',
+  },
+  { id: 1, name: 'Gif', url: 'https://cataas.com/cat/gif?json=true' },
+];
