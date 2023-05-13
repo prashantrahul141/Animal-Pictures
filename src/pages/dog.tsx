@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 
 import { dogBreedsData } from '@/utils/constants';
 import { useEffect, useState } from 'react';
+import HeadComponent from '@/components/common/HeadComponent';
+import Link from 'next/link';
 
 const Dog: NextPage = () => {
   const [selectedBreedUrl, setSelectedBreedUrl] = useState(
@@ -23,7 +25,8 @@ const Dog: NextPage = () => {
 
   return (
     <>
-      <div className='h-screen w-screen'>
+      <HeadComponent pageTitle='Dogs'></HeadComponent>
+      <div className='h-screen w-screen overflow-auto'>
         <div className='flex w-full items-center justify-center gap-4 py-12'>
           <select
             onChange={(e) => {
@@ -46,7 +49,9 @@ const Dog: NextPage = () => {
           </button>
         </div>
         <div className='w-ful flex items-center justify-center p-12'>
-          <img src={dogImageUrl} alt='dog' />
+          <Link href={dogImageUrl} target='_blank' passHref={true}>
+            <img className='max-h-96' src={dogImageUrl} alt='dog' />
+          </Link>
         </div>
       </div>
     </>
