@@ -4,6 +4,7 @@ import { dogBreedsData } from '@/utils/constants';
 import { useEffect, useState } from 'react';
 import HeadComponent from '@/components/common/HeadComponent';
 import Link from 'next/link';
+import type { TDogApiResponse } from '@/types';
 
 const Dog: NextPage = () => {
   const [selectedBreedUrl, setSelectedBreedUrl] = useState(
@@ -13,8 +14,7 @@ const Dog: NextPage = () => {
 
   const fetchData = async () => {
     const response = await fetch(selectedBreedUrl, { method: 'GET' });
-    const newData: { message: string; status: string } =
-      (await response.json()) as { message: string; status: string };
+    const newData: TDogApiResponse = (await response.json()) as TDogApiResponse;
     setDogImageUrl(newData.message);
   };
 
